@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     private lazy var labelTitle = UILabel()
     private lazy var buttonClose = UIButton(type: .system)
     private lazy var buttonSave = UIButton(type: .system)
+    private lazy var buttonList = UIButton(type: .system)
     private lazy var textFieldValue = UITextField()
     
     // Properties
@@ -27,10 +28,22 @@ class HomeViewController: UIViewController {
     // 2. buat delegate / orang perantara
     var delegate: HomeViewControllerDelegate?
     
+    static func instantiate(delegate: HomeViewControllerDelegate?, title: String) -> UINavigationController {
+        let controller = HomeViewController(titleString: title)
+        // 4. konekin delegate
+        controller.delegate = delegate
+        let nav = UINavigationController(rootViewController: controller)
+        controller.title = "Home"
+        nav.modalPresentationStyle = .fullScreen
+        return nav
+    }
+    
     // MARK: OVERRIDES
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate=nil
         setupViews()
     }
     
@@ -43,13 +56,19 @@ class HomeViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
+        
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationController?.navigationBar.tintColor = .red
         
         setupCloseButton()
         setupStackView()
         setupLabel()
         setupTextViewName()
         setupSaveButton()
+        setupListButton()
     }
     
     private func setupTextViewName() {
@@ -75,6 +94,25 @@ class HomeViewController: UIViewController {
         buttonSave.translatesAutoresizingMaskIntoConstraints = false
         buttonSave.widthAnchor.constraint(equalToConstant: 120).isActive = true
         buttonSave.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    private func setupListButton() {
+        
+        // Attributers
+        buttonList.setTitle("List", for: .normal)
+        buttonList.setTitleColor(.white, for: .normal)
+        buttonList.addTarget(
+            self,
+            action: #selector(showList),
+            for: .touchUpInside
+        )
+        buttonList.backgroundColor = .green
+        
+        // Constraints
+        stackViewMain.addArrangedSubview(buttonList)
+        buttonList.translatesAutoresizingMaskIntoConstraints = false
+        buttonList.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        buttonList.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     private func setupCloseButton() {
@@ -152,6 +190,11 @@ class HomeViewController: UIViewController {
         // 3. Panggil fungsi delegate
         delegate?.saveValue(value: stringValue)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func showList() {
+        let controller = ListUsersViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 
 }

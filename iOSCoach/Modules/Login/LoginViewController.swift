@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
         stackViewMain.axis = .vertical
         stackViewMain.alignment = .center
         stackViewMain.spacing = 16
-
+        
         view.addSubview(stackViewMain)
         stackViewMain.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -94,19 +94,9 @@ class LoginViewController: UIViewController {
     
     @objc func showHomeViewController() {
         let textFieldNameString = textFieldName.text
-        let controller = HomeViewController(titleString: textFieldNameString)
-        // 4. konekin delegate
-        controller.delegate = self
-        controller.modalPresentationStyle = .fullScreen
+        let controller = HomeViewController.instantiate(delegate: self, title: textFieldNameString ?? "-")
         present(controller, animated: true, completion: nil)
     }
-    
-//    @objc func ontextFieldnameChange() {
-//        // Regex / check validate passordd/ email
-//    }
-    
-    // MARK: DELEGATES
-    
     
 }
 // END LoginViewController
