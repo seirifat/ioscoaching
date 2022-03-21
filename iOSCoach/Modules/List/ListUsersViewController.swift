@@ -10,11 +10,19 @@ import UIKit
 class ListUsersViewController: UIViewController {
 
     private lazy var tableViewUsers = UITableView()
+    private let presenter = ListUserPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
+        presenter.view = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        presenter.refresh()
     }
     
     private func setupViews() {
@@ -53,33 +61,28 @@ class ListUsersViewController: UIViewController {
 
 extension ListUsersViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        2
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        }
-        return 10
+        return presenter.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "UserInfoCell", for: indexPath) as! UserInfoCell
-            return cell
-        } else {
-            if indexPath.row > 5 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ListUsersRightCell", for: indexPath) as! ListUsersRightCell
-                return cell
-            }
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ListUsersCell", for: indexPath) as! ListUsersCell
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListUsersCell", for: indexPath) as! ListUsersCell
+        cell.setData(user: presenter.data[indexPath.row])
+        return cell
     }
     
 }
 
 extension ListUsersViewController: UITableViewDelegate {
     //
+}
+
+extension ListUsersViewController: ListUserPresenterToViewProtocol {
+    func showData() {
+        tableViewUsers.reloadData()
+    }
+    
+    func showError(error: String) {
+        print(error)
+    }
 }

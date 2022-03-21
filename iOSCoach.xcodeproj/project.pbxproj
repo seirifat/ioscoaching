@@ -25,6 +25,9 @@
 		EF7B2D4127DB4131000DF323 /* iOSCoachUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B2D4027DB4131000DF323 /* iOSCoachUITests.swift */; };
 		EF7B2D4327DB4131000DF323 /* iOSCoachUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B2D4227DB4131000DF323 /* iOSCoachUITestsLaunchTests.swift */; };
 		EF7B2D5627DB435B000DF323 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B2D5527DB435B000DF323 /* LoginViewController.swift */; };
+		EF9DDBA527E7FCFA00012F16 /* ListUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DDBA427E7FCFA00012F16 /* ListUserPresenter.swift */; };
+		EF9DDBA827E8016900012F16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DDBA727E8016900012F16 /* User.swift */; };
+		EF9DDBAA27E8018100012F16 /* PageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DDBA927E8018100012F16 /* PageData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		EF7B2D4027DB4131000DF323 /* iOSCoachUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCoachUITests.swift; sourceTree = "<group>"; };
 		EF7B2D4227DB4131000DF323 /* iOSCoachUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCoachUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF7B2D5527DB435B000DF323 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF9DDBA427E7FCFA00012F16 /* ListUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserPresenter.swift; sourceTree = "<group>"; };
+		EF9DDBA727E8016900012F16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EF9DDBA927E8018100012F16 /* PageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 				EF78367527E47B6B00162E7F /* UserInfoCell.swift */,
 				EF78367127E4715400162E7F /* ListUsersCell.swift */,
 				EF78367327E477C600162E7F /* ListUsersRightCell.swift */,
+				EF9DDBA427E7FCFA00012F16 /* ListUserPresenter.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -160,6 +167,7 @@
 		EF7B2D1E27DB412E000DF323 /* iOSCoach */ = {
 			isa = PBXGroup;
 			children = (
+				EF9DDBA627E8015D00012F16 /* Models */,
 				EF7B2D4F27DB4229000DF323 /* Modules */,
 				EF7B2D1F27DB412E000DF323 /* AppDelegate.swift */,
 				EF5AE77427DB4CD000531C0C /* SceneDelegate.swift */,
@@ -207,6 +215,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		EF9DDBA627E8015D00012F16 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF9DDBA727E8016900012F16 /* User.swift */,
+				EF9DDBA927E8018100012F16 /* PageData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FFEC134CCE616C0D03185012 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +245,7 @@
 				EF7B2D1827DB412E000DF323 /* Sources */,
 				EF7B2D1927DB412E000DF323 /* Frameworks */,
 				EF7B2D1A27DB412E000DF323 /* Resources */,
+				5CDDA83DB9813788F16C39DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +283,7 @@
 				EF7B2D3827DB4131000DF323 /* Sources */,
 				EF7B2D3927DB4131000DF323 /* Frameworks */,
 				EF7B2D3A27DB4131000DF323 /* Resources */,
+				51B7C8E5B61A085260B7E9A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,6 +388,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		51B7C8E5B61A085260B7E9A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSCoach-iOSCoachUITests/Pods-iOSCoach-iOSCoachUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSCoach-iOSCoachUITests/Pods-iOSCoach-iOSCoachUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSCoach-iOSCoachUITests/Pods-iOSCoach-iOSCoachUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CDDA83DB9813788F16C39DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSCoach/Pods-iOSCoach-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSCoach/Pods-iOSCoach-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSCoach/Pods-iOSCoach-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		62952779FD198831FB7C264D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,11 +477,14 @@
 				EF7B2D5627DB435B000DF323 /* LoginViewController.swift in Sources */,
 				EF7B2D2427DB412E000DF323 /* ViewController.swift in Sources */,
 				EF78367227E4715400162E7F /* ListUsersCell.swift in Sources */,
+				EF9DDBAA27E8018100012F16 /* PageData.swift in Sources */,
 				EF78367027E4682200162E7F /* ListUsersViewController.swift in Sources */,
 				EF7B2D2027DB412E000DF323 /* AppDelegate.swift in Sources */,
 				EF5AE77527DB4CD000531C0C /* SceneDelegate.swift in Sources */,
 				EF78367427E477C600162E7F /* ListUsersRightCell.swift in Sources */,
 				EF78367627E47B6B00162E7F /* UserInfoCell.swift in Sources */,
+				EF9DDBA527E7FCFA00012F16 /* ListUserPresenter.swift in Sources */,
+				EF9DDBA827E8016900012F16 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

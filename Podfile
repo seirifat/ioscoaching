@@ -6,6 +6,8 @@ target 'iOSCoach' do
   use_frameworks!
 
   # Pods for iOSCoach
+  pod 'Alamofire', '~> 5.5'
+  pod 'AlamofireImage', '~> 4.1'
 
   target 'iOSCoachTests' do
     inherit! :search_paths

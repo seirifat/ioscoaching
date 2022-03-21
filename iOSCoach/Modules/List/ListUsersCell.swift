@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ListUsersCell: UITableViewCell {
     
@@ -55,6 +56,7 @@ class ListUsersCell: UITableViewCell {
         imageUserWidthAnchor.priority = UILayoutPriority(rawValue: 999)
         imageUserWidthAnchor.isActive = true
         imageUser.widthAnchor.constraint(equalToConstant: 64).isActive = true
+        imageUser.layer.cornerRadius = 32
         
         stackViewMain.addArrangedSubview(imageUser)
         stackViewMain.addArrangedSubview(labelTitle)
@@ -65,4 +67,10 @@ class ListUsersCell: UITableViewCell {
         imageUser.contentMode = .scaleAspectFill
     }
     
+    func setData(user: User) {
+        if let url = URL(string: user.avatar) {
+            imageUser.af.setImage(withURL: url)
+        }
+        labelTitle.text = "\(user.firstName) \(user.lastName)"
+    }
 }
