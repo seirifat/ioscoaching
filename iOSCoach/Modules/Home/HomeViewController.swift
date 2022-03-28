@@ -8,6 +8,8 @@
 import UIKit
 import AlamofireImage
 
+// INIT
+
 // 1. buat protocol
 protocol HomeViewControllerDelegate {
     func saveValue(value: String)
