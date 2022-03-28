@@ -37,6 +37,19 @@ class LoginViewController: UIViewController {
         setupLabel()
         setupTextViewName()
         setupButton()
+        keyboarHandling()
+    }
+    
+    func keyboarHandling() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func setupStackView() {
@@ -75,7 +88,10 @@ class LoginViewController: UIViewController {
         buttonTest.widthAnchor.constraint(
             equalToConstant: UIScreen.main.bounds.width / 3).isActive = true
         stackViewMain.addArrangedSubview(buttonTest)
-        buttonTest.addTarget(self, action: #selector(showHomeViewController), for: .touchUpInside)
+        buttonTest.addTarget(
+            self,
+            action: #selector(showHomeViewController),
+            for: .touchUpInside)
     }
     
     func setupImageBg() {

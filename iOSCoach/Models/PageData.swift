@@ -8,14 +8,14 @@
 import Foundation
 
 struct PageData: Decodable {
-    var page, per_page, total, total_pages: Int
+    var page, perPage, total, totalPages: Int
     var data: [User]
     
-    init(page: Int, perPage: Int, total: Int, totalPages: Int, data: [User]) {
-        self.page = page
-        self.per_page = perPage
-        self.total = total
-        self.total_pages = totalPages
-        self.data = data
+    enum CodingKeys: String, CodingKey {
+        case page
+        case perPage = "per_page"
+        case total
+        case totalPages = "total_pages"
+        case data
     }
 }

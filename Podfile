@@ -8,6 +8,7 @@ target 'iOSCoach' do
   # Pods for iOSCoach
   pod 'Alamofire', '~> 5.5'
   pod 'AlamofireImage', '~> 4.1'
+  pod 'Unrealm'
 
   target 'iOSCoachTests' do
     inherit! :search_paths

@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Unrealm
+import RealmSwift
 
-struct User: Decodable {
-    var id: Int
-    var email, firstName, lastName: String
-    var avatar: String
+class User: Object, Decodable {
+    @objc var id: Int = 0
+    @objc var email, firstName, lastName: String?
+    @objc var avatar: String?
     
     enum CodingKeys: String, CodingKey {
         case id, email
@@ -18,12 +20,8 @@ struct User: Decodable {
         case lastName = "last_name"
         case avatar
     }
-
-    init(id: Int, email: String, firstName: String, lastName: String, avatar: String) {
-        self.id = id
-        self.email = email
-        self.firstName = firstName
-        self.lastName = lastName
-        self.avatar = avatar
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

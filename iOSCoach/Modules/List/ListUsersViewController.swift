@@ -7,16 +7,23 @@
 
 import UIKit
 
+protocol ListUsersViewControllerDelegate {
+    func setUser(user: User)
+}
+
 class ListUsersViewController: UIViewController {
 
     private lazy var tableViewUsers = UITableView()
     private let presenter = ListUserPresenter()
+    var delegate: ListUsersViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         presenter.view = self
+//        presenter.loadData()
+        tableViewUsers.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,7 +33,7 @@ class ListUsersViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         
         setupTableView()
     }
@@ -62,7 +69,7 @@ class ListUsersViewController: UIViewController {
 extension ListUsersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.data.count
+        return presenter.data.count // length
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +81,12 @@ extension ListUsersViewController: UITableViewDataSource {
 }
 
 extension ListUsersViewController: UITableViewDelegate {
-    //
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let user = presenter.data[indexPath.row]
+        delegate?.setUser(user: user)
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension ListUsersViewController: ListUserPresenterToViewProtocol {
@@ -84,5 +96,14 @@ extension ListUsersViewController: ListUserPresenterToViewProtocol {
     
     func showError(error: String) {
         print(error)
+        let alert = UIAlertController(
+            title: "Error",
+            message: "Terjadi kesalahan, ulangi",
+            preferredStyle: .alert
+        )
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        )
+        present(alert, animated: true, completion: nil)
     }
 }

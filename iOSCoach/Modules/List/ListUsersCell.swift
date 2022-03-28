@@ -68,9 +68,9 @@ class ListUsersCell: UITableViewCell {
     }
     
     func setData(user: User) {
-        if let url = URL(string: user.avatar) {
+        if let urlString = user.avatar, let url = URL(string: urlString) {
             imageUser.af.setImage(withURL: url)
         }
-        labelTitle.text = "\(user.firstName) \(user.lastName)"
+        labelTitle.text = "\(user.firstName ?? "-") \(user.lastName ?? "-")"
     }
 }

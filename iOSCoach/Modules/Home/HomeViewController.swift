@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 // 1. buat protocol
 protocol HomeViewControllerDelegate {
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController {
     private lazy var buttonSave = UIButton(type: .system)
     private lazy var buttonList = UIButton(type: .system)
     private lazy var textFieldValue = UITextField()
+    private lazy var imageUser = UIImageView()
     
     // Properties
     private var titleString: String? = nil
@@ -58,10 +60,10 @@ class HomeViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .white
         
-        self.navigationController?.navigationBar.barStyle = .black
+//        self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = .orange
-        self.navigationController?.navigationBar.tintColor = .red
+//        self.navigationController?.navigationBar.barTintColor = .orange
+//        self.navigationController?.navigationBar.tintColor = .red
         
         setupCloseButton()
         setupStackView()
@@ -69,6 +71,24 @@ class HomeViewController: UIViewController {
         setupTextViewName()
         setupSaveButton()
         setupListButton()
+        setupImageView()
+    }
+    
+    private func setupImageView() {
+        imageUser.translatesAutoresizingMaskIntoConstraints = false
+        
+        let imageWidth = UIScreen.main.bounds.width / 3
+        
+        let imageUserWidthAnchor = imageUser.heightAnchor.constraint(equalToConstant: imageWidth)
+        imageUserWidthAnchor.priority = UILayoutPriority(rawValue: 999)
+        imageUserWidthAnchor.isActive = true
+        imageUser.widthAnchor.constraint(equalToConstant: imageWidth).isActive = true
+        imageUser.layer.cornerRadius = imageWidth / 2
+        
+        stackViewMain.addArrangedSubview(imageUser)
+        imageUser.image = UIImage(named: "ic_user")
+        imageUser.clipsToBounds = true
+        imageUser.contentMode = .scaleAspectFill
     }
     
     private func setupTextViewName() {
@@ -169,12 +189,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc func saveValue() {
-//        let stringValue = textFieldValue.text
-//        if stringValue == nil {
-//            let alert = UIAlertController(title: "Error", message: "Teks tidak boleh kosong", preferredStyle: .alert)
-//            present(alert, animated: true, completion: nil)
-//            return
-//        }
         guard let stringValue = textFieldValue.text, stringValue != "" else {
             let alert = UIAlertController(
                 title: "Error",
@@ -194,7 +208,23 @@ class HomeViewController: UIViewController {
     
     @objc func showList() {
         let controller = ListUsersViewController()
+        controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+//    @objc func showProductLst() {
+//        let controller = ListProductViewController()
+//        controller.delegate = self
+//        navigationController?.pushViewController(controller, animated: true)
+//    }
 
 }
+
+extension HomeViewController: ListUsersViewControllerDelegate {
+    func setUser(user: User) {
+        if let urlString = user.avatar, let url = URL(string: urlString) {
+            imageUser.af.setImage(withURL: url)
+        }
+    }
+}
+
