@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     private lazy var buttonClose = UIButton(type: .system)
     private lazy var buttonSave = UIButton(type: .system)
     private lazy var buttonList = UIButton(type: .system)
+    private lazy var buttonCollectionView = UIButton(type: .system)
     private lazy var textFieldValue = UITextField()
     private lazy var imageUser = UIImageView()
     
@@ -71,6 +72,7 @@ class HomeViewController: UIViewController {
         setupTextViewName()
         setupSaveButton()
         setupListButton()
+        setupCollectionButton()
         setupImageView()
     }
     
@@ -133,6 +135,25 @@ class HomeViewController: UIViewController {
         buttonList.translatesAutoresizingMaskIntoConstraints = false
         buttonList.widthAnchor.constraint(equalToConstant: 120).isActive = true
         buttonList.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    private func setupCollectionButton() {
+        
+        // Attributers
+        buttonCollectionView.setTitle("Collection View", for: .normal)
+        buttonCollectionView.setTitleColor(.white, for: .normal)
+        buttonCollectionView.addTarget(
+            self,
+            action: #selector(showProduct),
+            for: .touchUpInside
+        )
+        buttonCollectionView.backgroundColor = .orange
+        
+        // Constraints
+        stackViewMain.addArrangedSubview(buttonCollectionView)
+        buttonCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        buttonCollectionView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        buttonCollectionView.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     private func setupCloseButton() {
@@ -209,6 +230,11 @@ class HomeViewController: UIViewController {
     @objc func showList() {
         let controller = ListUsersViewController()
         controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc func showProduct() {
+        let controller = ProductCollectionViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
     

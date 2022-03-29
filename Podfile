@@ -9,6 +9,7 @@ target 'iOSCoach' do
   pod 'Alamofire', '~> 5.5'
   pod 'AlamofireImage', '~> 4.1'
   pod 'Unrealm'
+  pod 'SVPullToRefresh'
 
   target 'iOSCoachTests' do
     inherit! :search_paths

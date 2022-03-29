@@ -25,6 +25,11 @@
 		EF7B2D4127DB4131000DF323 /* iOSCoachUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B2D4027DB4131000DF323 /* iOSCoachUITests.swift */; };
 		EF7B2D4327DB4131000DF323 /* iOSCoachUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B2D4227DB4131000DF323 /* iOSCoachUITestsLaunchTests.swift */; };
 		EF7B2D5627DB435B000DF323 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7B2D5527DB435B000DF323 /* LoginViewController.swift */; };
+		EF83CD5327F2A5030069EEBC /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF83CD5227F2A5030069EEBC /* ProductCollectionViewController.swift */; };
+		EF83CD5527F2A8F60069EEBC /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF83CD5427F2A8F60069EEBC /* ProductCell.swift */; };
+		EF83CD5727F2ADAB0069EEBC /* ProductsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF83CD5627F2ADAB0069EEBC /* ProductsPresenter.swift */; };
+		EF83CD5927F2AEB30069EEBC /* PageDataProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF83CD5827F2AEB30069EEBC /* PageDataProduct.swift */; };
+		EF83CD5B27F2AEC60069EEBC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF83CD5A27F2AEC60069EEBC /* Product.swift */; };
 		EF9DDBA527E7FCFA00012F16 /* ListUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DDBA427E7FCFA00012F16 /* ListUserPresenter.swift */; };
 		EF9DDBA827E8016900012F16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DDBA727E8016900012F16 /* User.swift */; };
 		EF9DDBAA27E8018100012F16 /* PageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DDBA927E8018100012F16 /* PageData.swift */; };
@@ -76,6 +81,11 @@
 		EF7B2D4027DB4131000DF323 /* iOSCoachUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCoachUITests.swift; sourceTree = "<group>"; };
 		EF7B2D4227DB4131000DF323 /* iOSCoachUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCoachUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF7B2D5527DB435B000DF323 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF83CD5227F2A5030069EEBC /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
+		EF83CD5427F2A8F60069EEBC /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		EF83CD5627F2ADAB0069EEBC /* ProductsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPresenter.swift; sourceTree = "<group>"; };
+		EF83CD5827F2AEB30069EEBC /* PageDataProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDataProduct.swift; sourceTree = "<group>"; };
+		EF83CD5A27F2AEC60069EEBC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EF9DDBA427E7FCFA00012F16 /* ListUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserPresenter.swift; sourceTree = "<group>"; };
 		EF9DDBA727E8016900012F16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF9DDBA927E8018100012F16 /* PageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageData.swift; sourceTree = "<group>"; };
@@ -200,6 +210,7 @@
 		EF7B2D4F27DB4229000DF323 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EF83CD5127F2A4E40069EEBC /* CollectionProduct */,
 				EF78366E27E4663D00162E7F /* List */,
 				EF5AE77627DB519A00531C0C /* Home */,
 				EF7B2D5027DB4233000DF323 /* Login */,
@@ -215,11 +226,23 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		EF83CD5127F2A4E40069EEBC /* CollectionProduct */ = {
+			isa = PBXGroup;
+			children = (
+				EF83CD5227F2A5030069EEBC /* ProductCollectionViewController.swift */,
+				EF83CD5427F2A8F60069EEBC /* ProductCell.swift */,
+				EF83CD5627F2ADAB0069EEBC /* ProductsPresenter.swift */,
+			);
+			path = CollectionProduct;
+			sourceTree = "<group>";
+		};
 		EF9DDBA627E8015D00012F16 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				EF9DDBA727E8016900012F16 /* User.swift */,
 				EF9DDBA927E8018100012F16 /* PageData.swift */,
+				EF83CD5827F2AEB30069EEBC /* PageDataProduct.swift */,
+				EF83CD5A27F2AEC60069EEBC /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -478,11 +501,16 @@
 				EF7B2D2427DB412E000DF323 /* ViewController.swift in Sources */,
 				EF78367227E4715400162E7F /* ListUsersCell.swift in Sources */,
 				EF9DDBAA27E8018100012F16 /* PageData.swift in Sources */,
+				EF83CD5B27F2AEC60069EEBC /* Product.swift in Sources */,
+				EF83CD5527F2A8F60069EEBC /* ProductCell.swift in Sources */,
 				EF78367027E4682200162E7F /* ListUsersViewController.swift in Sources */,
 				EF7B2D2027DB412E000DF323 /* AppDelegate.swift in Sources */,
+				EF83CD5927F2AEB30069EEBC /* PageDataProduct.swift in Sources */,
 				EF5AE77527DB4CD000531C0C /* SceneDelegate.swift in Sources */,
+				EF83CD5327F2A5030069EEBC /* ProductCollectionViewController.swift in Sources */,
 				EF78367427E477C600162E7F /* ListUsersRightCell.swift in Sources */,
 				EF78367627E47B6B00162E7F /* UserInfoCell.swift in Sources */,
+				EF83CD5727F2ADAB0069EEBC /* ProductsPresenter.swift in Sources */,
 				EF9DDBA527E7FCFA00012F16 /* ListUserPresenter.swift in Sources */,
 				EF9DDBA827E8016900012F16 /* User.swift in Sources */,
 			);
