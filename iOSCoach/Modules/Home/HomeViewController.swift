@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     private lazy var buttonSave = UIButton(type: .system)
     private lazy var buttonList = UIButton(type: .system)
     private lazy var buttonCollectionView = UIButton(type: .system)
+    private lazy var buttonConcurrentcy = UIButton(type: .system)
     private lazy var textFieldValue = UITextField()
     private lazy var imageUser = UIImageView()
     
@@ -62,7 +63,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         
 //        self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.isTranslucent = false
 //        self.navigationController?.navigationBar.barTintColor = .orange
 //        self.navigationController?.navigationBar.tintColor = .red
         
@@ -73,6 +74,7 @@ class HomeViewController: UIViewController {
         setupSaveButton()
         setupListButton()
         setupCollectionButton()
+        setupConcurrentButton()
         setupImageView()
     }
     
@@ -154,6 +156,25 @@ class HomeViewController: UIViewController {
         buttonCollectionView.translatesAutoresizingMaskIntoConstraints = false
         buttonCollectionView.widthAnchor.constraint(equalToConstant: 120).isActive = true
         buttonCollectionView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    private func setupConcurrentButton() {
+        
+        // Attributers
+        buttonConcurrentcy.setTitle("Collection View", for: .normal)
+        buttonConcurrentcy.setTitleColor(.white, for: .normal)
+        buttonConcurrentcy.addTarget(
+            self,
+            action: #selector(showLoadImageConcurrent),
+            for: .touchUpInside
+        )
+        buttonConcurrentcy.backgroundColor = .systemBlue
+        
+        // Constraints
+        stackViewMain.addArrangedSubview(buttonConcurrentcy)
+        buttonConcurrentcy.translatesAutoresizingMaskIntoConstraints = false
+        buttonConcurrentcy.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        buttonConcurrentcy.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     private func setupCloseButton() {
@@ -238,6 +259,11 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    @objc func showLoadImageConcurrent() {
+        let controller = LoadImageViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 //    @objc func showProductLst() {
 //        let controller = ListProductViewController()
 //        controller.delegate = self
@@ -247,10 +273,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: ListUsersViewControllerDelegate {
-    func setUser(user: User) {
-        if let urlString = user.avatar, let url = URL(string: urlString) {
-            imageUser.af.setImage(withURL: url)
-        }
-    }
+//    func setUser(user: User) {
+//        if let urlString = user.avatar, let url = URL(string: urlString) {
+//            imageUser.af.setImage(withURL: url)
+//        }
+//    }
 }
 

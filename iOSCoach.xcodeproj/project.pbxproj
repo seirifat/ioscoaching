@@ -11,6 +11,8 @@
 		8411860EB2134A786CD41C6C /* Pods_iOSCoach_iOSCoachUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8744689468797D53A608B393 /* Pods_iOSCoach_iOSCoachUITests.framework */; };
 		EB0C98DC3D72BAC1F34FBEC7 /* Pods_iOSCoach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ED6717C20A3CCC5E527764 /* Pods_iOSCoach.framework */; };
 		EF15DE5B27DF208F00762BA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DE5A27DF208F00762BA1 /* HomeViewController.swift */; };
+		EF1A8515285564AC00A775DC /* LoadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A8513285564AC00A775DC /* LoadImageViewController.swift */; };
+		EF1A8516285564AC00A775DC /* LoadImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1A8514285564AC00A775DC /* LoadImageViewController.xib */; };
 		EF5AE77527DB4CD000531C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5AE77427DB4CD000531C0C /* SceneDelegate.swift */; };
 		EF78367027E4682200162E7F /* ListUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78366F27E4682200162E7F /* ListUsersViewController.swift */; };
 		EF78367227E4715400162E7F /* ListUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78367127E4715400162E7F /* ListUsersCell.swift */; };
@@ -63,6 +65,8 @@
 		8744689468797D53A608B393 /* Pods_iOSCoach_iOSCoachUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCoach_iOSCoachUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE03B33F577A5CD002E9A05 /* Pods-iOSCoachTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCoachTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSCoachTests/Pods-iOSCoachTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF15DE5A27DF208F00762BA1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EF1A8513285564AC00A775DC /* LoadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageViewController.swift; sourceTree = "<group>"; };
+		EF1A8514285564AC00A775DC /* LoadImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadImageViewController.xib; sourceTree = "<group>"; };
 		EF5AE77427DB4CD000531C0C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EF78366F27E4682200162E7F /* ListUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersViewController.swift; sourceTree = "<group>"; };
 		EF78367127E4715400162E7F /* ListUsersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUsersCell.swift; sourceTree = "<group>"; };
@@ -130,6 +134,15 @@
 				2AC337E4E31A0E4DD84FC2CB /* Pods-iOSCoachTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EF1A85102855645C00A775DC /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				EF1A8513285564AC00A775DC /* LoadImageViewController.swift */,
+				EF1A8514285564AC00A775DC /* LoadImageViewController.xib */,
+			);
+			path = Concurrency;
 			sourceTree = "<group>";
 		};
 		EF5AE77627DB519A00531C0C /* Home */ = {
@@ -214,6 +227,7 @@
 				EF78366E27E4663D00162E7F /* List */,
 				EF5AE77627DB519A00531C0C /* Home */,
 				EF7B2D5027DB4233000DF323 /* Login */,
+				EF1A85102855645C00A775DC /* Concurrency */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -368,6 +382,7 @@
 			files = (
 				EF7B2D2C27DB4130000DF323 /* LaunchScreen.storyboard in Resources */,
 				EF7B2D2927DB4130000DF323 /* Assets.xcassets in Resources */,
+				EF1A8516285564AC00A775DC /* LoadImageViewController.xib in Resources */,
 				EF7B2D2727DB412E000DF323 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1A8515285564AC00A775DC /* LoadImageViewController.swift in Sources */,
 				EF15DE5B27DF208F00762BA1 /* HomeViewController.swift in Sources */,
 				EF7B2D5627DB435B000DF323 /* LoginViewController.swift in Sources */,
 				EF7B2D2427DB412E000DF323 /* ViewController.swift in Sources */,

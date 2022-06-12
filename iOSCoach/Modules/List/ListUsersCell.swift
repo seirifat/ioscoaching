@@ -67,10 +67,10 @@ class ListUsersCell: UITableViewCell {
         imageUser.contentMode = .scaleAspectFill
     }
     
-    func setData(user: User) {
-        if let urlString = user.avatar, let url = URL(string: urlString) {
-            imageUser.af.setImage(withURL: url)
-        }
-        labelTitle.text = "\(user.firstName ?? "-") \(user.lastName ?? "-")"
-    }
+//    func setData(user: User) {
+//        if let urlString = user.avatar, let url = URL(string: urlString) {
+//            imageUser.af.setImage(withURL: url)
+//        }
+//        labelTitle.text = "\(user.firstName ?? "-") \(user.lastName ?? "-")"
+//    }
 }

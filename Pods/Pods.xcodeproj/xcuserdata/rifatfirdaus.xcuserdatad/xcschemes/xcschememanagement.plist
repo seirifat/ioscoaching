@@ -39,17 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Runtime.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SVPullToRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Unrealm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

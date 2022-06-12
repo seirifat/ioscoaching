@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ListUsersViewControllerDelegate {
-    func setUser(user: User)
+//    func setUser(user: User)
 }
 
 class ListUsersViewController: UIViewController {
@@ -74,7 +74,7 @@ extension ListUsersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListUsersCell", for: indexPath) as! ListUsersCell
-        cell.setData(user: presenter.data[indexPath.row])
+//        cell.setData(user: presenter.data[indexPath.row])
         return cell
     }
     
@@ -84,7 +84,7 @@ extension ListUsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let user = presenter.data[indexPath.row]
-        delegate?.setUser(user: user)
+//        delegate?.setUser(user: user)
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -37,7 +37,7 @@ class ListProductPresenter {
         ).responseDecodable(of: PageDataProduct.self) { response in
             // Cek error
             if response.error != nil {
-                print("ERROR Response: \(response.error)")
+                print("ERROR Response: \(String(describing: response.error))")
                 self.view?.showError(
                     error: response.error?.localizedDescription
                     ?? "Something went wrong! Please try again!"

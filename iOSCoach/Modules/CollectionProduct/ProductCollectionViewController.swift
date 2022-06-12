@@ -99,9 +99,11 @@ extension ProductCollectionViewController: UICollectionViewDelegate {
 
 extension ProductCollectionViewController: ListProductPresenterToViewProtocol {
     func showData() {
-        collectionViewProduct.pullToRefreshView.stopAnimating()
-        collectionViewProduct.infiniteScrollingView.stopAnimating()
-        collectionViewProduct.reloadData()
+        DispatchQueue.main.async { [unowned self] in
+            self.collectionViewProduct.pullToRefreshView.stopAnimating()
+            self.collectionViewProduct.infiniteScrollingView.stopAnimating()
+            self.collectionViewProduct.reloadData()
+        }
     }
     
     func showError(error: String) {
